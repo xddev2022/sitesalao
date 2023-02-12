@@ -1,0 +1,207 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<title>Cadastro de Cabelo</title> 
+<script language="JavaScript">
+  function MM_openBrWindow(theUrl, winName, features) {
+    window.open(theUrl, winName, features);
+  }
+</script>
+<style>
+   #mensagem-sucesso {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 20px;
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+  }
+   form {
+    border: 2px solid rgb(66, 64, 64);
+    border-radius: 20px;
+    padding: 20px;
+  }
+
+  img {
+    background-image: no-repeat;
+    border: 15px;
+  }
+  .banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  background-color: #ccc;
+}
+
+.banner img {
+  max-width: 100%;
+  height: auto;
+}
+input[type="submit"] {
+  background-color: #4CAF50; /* Cor de fundo */
+  color: white; /* Cor do texto */
+  padding: 14px 20px; /* Espaçamento interno */
+  border: none; /* Sem borda */
+  border-radius: 4px; /* Borda arredondada */
+  cursor: pointer; /* Cursor de mão */
+  font-size: 16px; /* Tamanho da fonte */
+}
+#horarios {
+    font-size: 12px;
+  }
+
+  select {
+    font-size: 12px;
+    width: 50px;
+  }
+</style>
+</head> 
+<body> 
+  <div class="banner">
+    <img src="IMAGES\LOGO.png" alt="Sua imagem">
+  </div>
+<center>
+<h1>MARQUE SEU HORARIO</h1> 
+
+ 
+
+
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<div id="mensagem-sucesso" style="display: none;">Cadastro realizado com sucesso1!</div>
+
+<form id="form-id" action="enviar.php" method="post" onsubmit="enviarDados(); return true;">
+  
+  Nome do Cabelo: 
+  <input type="radio" name="cabelo_name" value="crespo">Crespo
+  <input type="radio" name="cabelo_name" value="cacheado">Cacheado
+  <input type="radio" name="cabelo_name" value="liso">Liso<br><br>
+  Tamanho: 
+  <input type="radio" name="tamanho" value="curto">Curto
+  <input type="radio" name="tamanho" value="medio">Medio
+  <input type="radio" name="tamanho" value="longo">Longo<br><br>
+  Fez Quimica Recentemente: 
+  <input type="radio" name="fez_quimica" value="sim">Sim
+  <input type="radio" name="fez_quimica" value="nao">Nao<br><br>
+  Data: <input type="text" id="datepicker"><br><br>
+  selecione seu horario<div id="horarios"></div>
+   <select name="horario" style="background-color: green;">
+    <option value="" disabled selected>Selecione seu horário</option>
+    <option value="9h">9h</option>
+    <option value="10h">10h</option>
+    <option value="11h">11h</option>
+    <option value="12h">12h</option>
+    <option value="13h">13h</option>
+    <option value="14h">14h</option>
+    <option value="15h">15h</option>
+    <option value="16h">16h</option>
+    </select><br><br>
+     <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome">
+      <br><br>
+      <label for="telefone">Telefone:</label>
+      <input type="text" id="telefone" name="telefone">
+      <br><br>
+      <input type="submit" value="Enviar" onclick="mostrarMensagemSucesso()">
+      <p>Qualquer divergencia no formulario acarretara em cobrancas adicionais.</p>
+
+    </form>
+    
+  
+
+ 
+</form>
+<center>
+<div id="dialog" title="Cabelo Cadastrado"></div>
+<div style="text-align:center;">
+  <h1 style="font-size:50px;">EM BREVE</h1>
+  <h2 style="font-size:30px;">Extencao de cilios e unhas</h2>
+  <p style="font-size:20px;">Fique atento a nossas novidades</p>
+</div>
+
+</center>
+<form id="form-id">
+  <label for="email">Endereco de email:</label>
+  <input type="email" id="email" name="email" required>
+  <input type="submit" value="receber novidades">
+</form>
+<script>
+
+  $( function() {
+    $( "#datepicker" ).datepicker({
+      dateFormat: "dd/mm/yy",
+      minDate: 0,
+      beforeShowDay: function(date) {
+        var day = date.getDay();
+        return [(day != 0), ''];
+      }
+    });
+  } );
+
+  function enviarDados() {
+      var form = document.getElement
+
+  }
+  function enviarDados() {
+      var form = document.getElementById("form-id");
+      function mostrarMensagemSucesso() {
+    var mensagemSucesso = document.getElementById("mensagem-sucesso");
+    mensagemSucesso.style.display = "block";
+    
+    setTimeout(function() {
+      mensagemSucesso.style.display = "none";
+    }, 5000);
+  }
+
+      // Envia os dados do formulário para o arquivo PHP
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", form.action, true);
+      xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+              // Exibe a mensagem de sucesso
+              mensagemSucesso.style.display = "block";
+
+              // Faz a mensagem sumir após 3 segundos
+              setTimeout(function() {
+                  mensagemSucesso.style.display = "none";
+              }, 3000);
+          }
+      };
+      xhr.send(new FormData(form));
+  }
+  
+
+  var horariosContainer = document.getElementById("horarios");
+
+  horarios.forEach(function(horario) {
+    var horarioElement = document.createElement("div");
+    horarioElement.innerHTML = horario.horario;
+    if (horario.disponivel) {
+      horarioElement.classList.add("horario-disponivel");
+    } else {
+      horarioElement.classList.add("horario-indisponivel");
+    }
+    horariosContainer.appendChild(horarioElement);
+  });
+  const form = document.getElementById("form-inscricao");
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const email = form.elements.email.value;
+    // Aqui você pode enviar o email para a sua lista de promoções.
+    // Para fins de exemplo, vamos apenas exibir uma mensagem de sucesso na tela.
+    const mensagemSucesso = document.getElementById("mensagem-sucesso");
+    mensagemSucesso.textContent = "Inscrição realizada com sucesso! Obrigado por se inscrever em nossas promoções.";
+    mensagemSucesso.style.display = "block";
+
+    form.reset();
+  });
+</script>
+
+</body> 
+</html>

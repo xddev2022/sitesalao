@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="pt"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>fotos</title>
+    <link rel="stylesheet" href="nicepage.css" media="screen">
+<link rel="stylesheet" href="Contato.css" media="screen">
+    <script class="u-script" type="text/javascript" src="" defer=""></script>
+    <script class="u-script" type="text/javascript" src="" defer=""></script>
+    <meta name="generator" content="Nicepage 5.0.7, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    
+    
+    
+<style>
+ body {
+  background-image: url('https://th.bing.com/th/id/R.83134c7ea88a59df61b390cb2a477c14?rik=XKEKp6Ss0155IQ&pid=ImgRaw&r=0');
+  background-repeat: no-repeat;
+  background-position: absolute;
+}
+
+  .thumbnail {
+  height: 200px;
+  width: 200px;
+  cursor: pointer;
+}
+
+#album {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#overlay img {
+  max-width: 80%;
+  max-height: 80%;
+}
+
+.close-button {
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  color: rgb(231, 10, 10);
+}
+#album {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px;
+}
+
+.thumbnail {
+  height: 200px;
+  width: 200px;
+  cursor: pointer;
+  margin: 20px;
+}
+
+
+</style>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Contato">
+    <meta property="og:type" content="website">
+  </head>
+  <body>
+    
+    
+      <div class="image-container" id="album">
+        <img src="IMAGES\cabelo4.jpg" class="thumbnail" onclick="openOverlay(this)">
+        <img src="IMAGES\6018e10c-5bea-4b63-8066-30861085023f.JPG" class="thumbnail" onclick="openOverlay(this)">
+        <img src="IMAGES\cabelo 1.jpg" class="thumbnail" onclick="openOverlay(this)">
+        <img src="IMAGES\cabelo2.jpg" class="thumbnail" onclick="openOverlay(this)"><br>
+       
+      </div>
+      <script>
+        function openOverlay(thumbnail) {
+  document.getElementById("overlay-image").src = thumbnail.src;
+  document.getElementById("overlay").style.display = "flex";
+}
+
+function closeOverlay() {
+  document.getElementById("overlay").style.display = "none";
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    overlay.style.display = 'none';
+  }
+});
+function showOverlay(image) {
+  var overlay = document.querySelector(".overlay");
+  var closeButton = document.querySelector(".close-button");
+  overlay.style.display = "block";
+  closeButton.style.display = "block";
+  overlay.querySelector("img").src = image.src;
+}
+
+function hideOverlay() {
+  var overlay = document.querySelector(".overlay");
+  var closeButton = document.querySelector(".close-button");
+  overlay.style.display = "none";
+  closeButton.style.display = "none";
+}
+
+document.onkeydown = function(evt) {
+  evt = evt || window.event;
+  if (evt.keyCode == 27) {
+    hideOverlay();
+  }
+};
+
+      </script>
+      <div id="overlay">
+        <img id="overlay-image">
+        <a id="close-button" onclick="closeOverlay()">X</a>
+      </div>
+      
+      </a>. 
+    </section>
+  
+</body></html>
